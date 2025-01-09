@@ -1,0 +1,705 @@
+
+* Introduction to Lists in Python:
+1. Lists are ordered collection of data items.
+2. They store multiple items in a single variable.
+3. List items are separated by commas and enclosed within square brackets [].
+4. Lists are mutable.
+
+Example 1:
+lst1 = [1,2,2,3,5,4,6]
+lst2 = ["Red", "Green", "Blue"]
+print(lst1)
+print(lst2)
+
+Output:
+[1, 2, 2, 3, 5, 4, 6]
+['Red', 'Green', 'Blue']
+
+Example 2:
+details = ["Abhijeet", 18, "FYBScIT", 9.8]
+print(details)
+
+Output:
+['Abhijeet', 18, 'FYBScIT', 9.8]
+
+- Negative Indexing:
+Similar to positive indexing, negative indexing is also used to access items, but from the end of the list. The last item has index [-1], second last item has index [-2], third last item has index [-3] and so on.
+
+Example:
+colors = ["Red", "Green", "Blue", "Yellow", "Green"]
+#          [-5]    [-4]    [-3]     [-2]      [-1]
+print(colors[-1])
+print(colors[-3])
+print(colors[-5])
+Output:
+Green
+Blue
+Red
+
+- Check whether an item in present in the list?
+We can check if a given item is present in the list. This is done using the in keyword.
+colors = ["Red", "Green", "Blue", "Yellow", "Green"]
+if "Yellow" in colors:
+    print("Yellow is present.")
+else:
+    print("Yellow is absent.")
+Output:
+Yellow is present.
+
+- Range of Index:
+You can print a range of list items by specifying where you want to start, where do you want to end and if you want to skip elements in between the range.
+
+Syntax:
+listName[start : end : jumpIndex]
+Note: jump Index is optional. 
+
+Example: printing elements within a particular range:
+animals = ["cat", "dog", "bat", "mouse", "pig", "horse", "donkey", "goat", "cow"]
+print(animals[3:7])	#using positive indexes
+print(animals[-7:-2])	#using negative indexes'
+Output:
+['mouse', 'pig', 'horse', 'donkey']
+['bat', 'mouse', 'pig', 'horse', 'donkey']
+
+- List Comprehension:
+List comprehensions are used for creating new lists from other iterables like lists, tuples, dictionaries, sets, and even in arrays and strings.
+
+Syntax:
+List = [Expression(item) for item in iterable if Condition]
+Expression: It is the item which is being iterated.
+Iterable: It can be list, tuples, dictionaries, sets, and even in arrays and strings.
+Condition: Condition checks if the item should be added to the new list or not.
+
+Examples:
+Example 1: Accepts items with the small letter “o” in the new list
+names = ["Milo", "Sarah", "Bruno", "Anastasia", "Rosa"]
+namesWith_O = [item for item in names if "o" in item]
+print(namesWith_O)
+Output:
+['Milo', 'Bruno', 'Rosa']
+
+Example 2: Accepts items which have more than 4 letters
+names = ["Milo", "Sarah", "Bruno", "Anastasia", "Rosa"]
+namesWith_O = [item for item in names if (len(item) > 4)]
+print(namesWith_O)
+Output:
+['Sarah', 'Bruno', 'Anastasia']
+
+________________________________
+
+* List Methods:
+- list.sort() #for sorting in ascending order
+- list.sort(reverse=True) #for sorting in descending order
+Note: The reverse parameter is set to False by default.
+
+- reverse() #for reversing the list
+Example:
+num = [4,2,5,3,6,1,2,1,2,8,9,7]
+num.reverse()
+print(num)
+Output:
+[7, 9, 8, 2, 1, 2, 1, 6, 3, 5, 2, 4]
+
+- index()
+This method returns the index of the first occurrence of the list item.
+Example:
+num = [4,2,5,3,6,1,2,1,3,2,8,9,7]
+print(num.index(3))
+Output:
+3
+
+- count():
+Returns the count of the number of items with the given value.
+Example:
+colors = ["voilet", "green", "indigo", "blue", "green"]
+print(colors.count("green"))
+Output:
+2
+
+- copy():
+Returns copy of the list. This can be done to perform operations on the list without modifying the original list.
+Example:
+colors = ["voilet", "green", "indigo", "blue"]
+newlist = colors.copy()
+print(colors)
+print(newlist)
+Output:
+['voilet', 'green', 'indigo', 'blue']
+['voilet', 'green', 'indigo', 'blue']
+
+- append():
+This method appends items to the end of the existing list.
+Example:
+colors = ["voilet", "indigo", "blue"]
+colors.append("green")
+print(colors)
+Output:
+['voilet', 'indigo', 'blue', 'green']
+
+- insert():
+This method inserts an item at the given index. User has to specify index and the item to be inserted within the insert() method.
+Example:
+colors = ["voilet", "indigo", "blue"]
+#           [0]        [1]      [2]
+colors.insert(1, "green")   #inserts item at index 1
+# updated list: colors = ["voilet", "green", "indigo", "blue"]
+#       indexs              [0]       [1]       [2]      [3]
+print(colors)
+Output:
+['voilet', 'green', 'indigo', 'blue']
+
+- extend():
+This method adds an entire list or any other collection datatype (set, tuple, dictionary) to the existing list.
+Example 1:
+#add a list to a list
+colors = ["voilet", "indigo", "blue"]
+rainbow = ["green", "yellow", "orange", "red"]
+colors.extend(rainbow)
+print(colors)
+Output:
+['voilet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red']
+
+- Concatenating two lists:
+You can simply concatenate two lists to join two lists.
+Example:
+colors = ["voilet", "indigo", "blue", "green"]
+colors2 = ["yellow", "orange", "red"]
+print(colors + colors2)
+Output:
+['voilet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red']
+
+________________________________
+
+* Introduction to Tuples:
+Tuples are ordered collection of data items. They store multiple items in a single variable. Tuple items are separated by commas and enclosed within round brackets (). Tuples are immutable.
+
+Example 1:
+tuple1 = (1,2,2,3,5,4,6)
+tuple2 = ("Red", "Green", "Blue")
+print(tuple1)
+print(tuple2)
+Output:
+(1, 2, 2, 3, 5, 4, 6)
+('Red', 'Green', 'Blue')
+
+Example 2:
+details = ("Abhijeet", 18, "FYBScIT", 9.8)
+print(details)
+Output:
+('Abhijeet', 18, 'FYBScIT', 9.8)
+
+Note: If we write like below, then
+tup = (1)
+print(type(tup))
+
+Then output will be <class:int>
+so to make it tuple, always write below:
+tup = (1,)
+print(type(tup))
+Output:
+<class:tuple>
+
+________________________________
+
+* Manipulating Tuples:
+Tuples are immutable, hence if you want to add, remove or change tuple items, then first you must convert the tuple to a list. Then perform operation on that list and convert it back to tuple.
+
+Example:
+countries = ("Spain", "Italy", "India", "England", "Germany")
+temp = list(countries)
+temp.append("Russia")       #add item 
+temp.pop(3)                 #remove item
+temp[2] = "Finland"         #change item
+countries = tuple(temp)
+print(countries)
+Output:
+('Spain', 'Italy', 'Finland', 'Germany', 'Russia')
+
+Thus, we convert the tuple to a list, manipulate items of the list using list methods, then convert list back to a tuple.
+However, we can directly concatenate two tuples without converting them to list.
+
+Example:
+countries = ("Pakistan", "Afghanistan", "Bangladesh", "ShriLanka")
+countries2 = ("Vietnam", "India", "China")
+southEastAsia = countries + countries2
+print(southEastAsia)
+Output:
+('Pakistan', 'Afghanistan', 'Bangladesh', 'ShriLanka', 'Vietnam', 'India', 'China')
+
+- Tuple methods:
+- count() Method
+The count() method of Tuple returns the number of times the given element appears in the tuple.
+
+Syntax:
+tuple.count(element)
+
+- index() method
+The Index() method returns the first occurrence of the given element from the tuple.
+
+Syntax:
+tuple.index(element, start, end)
+Note: This method raises a ValueError if the element is not found in the tuple.
+
+________________________________
+
+* String formatting in python:
+String formatting can be done in python using the format method.
+txt = "For only {price:.2f} dollars!"
+print(txt.format(price = 49))
+
+- f-strings in python:
+When we prefix the string with the letter 'f', the string becomes the f-string itself. The f-string can be formatted in much same as the str.format() method. The f-string offers a convenient way to embed Python expression inside string literals for formatting.
+Example
+val = 'Geeks'  
+print(f"{val}for{val} is a portal for {val}.")  
+name = 'Tushar'  
+age = 23  
+print(f"Hello, My name is {name} and I'm {age} years old.")
+Output:
+Hello, My name is Tushar and I'm 23 years old.
+
+Example
+print(f"{2 * 30})"
+Output:
+60
+
+Example:
+letter = "Hey my name is {1} and I am from {0}"
+country = "India"
+name = "Harry"
+
+print(letter.format(country, name))
+print(f"Hey my name is {name} and I am from {country}")
+print(f"We use f-strings like this: Hey my name is {{name}} and I am from {{country}}")
+price = 49.09999
+txt = f"For only {price:.2f} dollars!"
+print(txt)
+# print(txt.format())
+print(type(f"{2 * 30}"))
+
+________________________________
+
+* Docstrings in python:
+Python docstrings are the string literals that appear right after the definition of a function, method, class, or module.
+
+Example
+def square(n):
+    '''Takes in a number n, returns the square of n'''
+    print(n**2)
+square(5)
+
+__
+
+Here,
+'''Takes in a number n, returns the square of n''' is a docstring which will not appear in output
+
+Output:
+25
+
+- Python Comments vs Docstrings:
+Python Comments
+Comments are descriptions that help programmers better understand the intent and functionality of the program. They are completely ignored by the Python interpreter.
+
+Python docstrings
+As mentioned above, Python docstrings are strings used right after the definition of a function, method, class, or module (like in Example 1). They are used to document our code.
+
+We can access these docstrings using the doc attribute.
+
+Python doc attribute
+Whenever string literals are present just after the definition of a function, module, class or method, they are associated with the object as their doc attribute. We can later use this attribute to retrieve this docstring.
+
+Example
+def square(n):
+    '''Takes in a number n, returns the square of n'''
+    return n**2
+print(square.__doc__)
+Output:
+Takes in a number n, returns the square of n
+
+________________________________
+
+* Recursion in python:
+Example:
+def factorial(num): 
+    if (num == 1 or num == 0):
+        return 1
+    else:
+        return (num * factorial(num - 1)) 
+  
+# Driver Code 
+num = 7; 
+print("Number: ",num)
+print("Factorial: ",factorial(num))
+
+Output:
+number:  7
+Factorial:  5040
+
+________________________________
+
+* Sets:
+Sets are unordered collection of data items. They store multiple items in a single variable. Set items are separated by commas and enclosed within curly brackets {}. Sets are unchangeable, meaning you cannot change items of the set once created. Sets do not contain duplicate items.
+
+Node: set elements can't be changed. But we can add, delete elements from the set.
+Tuples are immutable means we can't add, delete, modify from the tuple.
+
+Example:
+info = {"Carla", 19, False, 5.9, 19}
+print(info)
+Output:
+{False, 19, 5.9, 'Carla'}
+
+Accessing set items:
+Using a For loop
+You can access items of set using a for loop.
+
+Example:
+info = {"Carla", 19, False, 5.9}
+for item in info:
+    print(item)
+Output:
+False
+Carla
+19
+5.9
+
+________________________________
+
+* set Operations:
+- union() and update():
+The union() and update() methods prints all items that are present in the two sets. The union() method returns a new set whereas update() method adds item into the existing set from another set.
+
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities2 = {"Tokyo", "Seoul", "Kabul", "Madrid"}
+cities3 = cities.union(cities2)
+print(cities3)
+Output:
+{'Tokyo', 'Madrid', 'Kabul', 'Seoul', 'Berlin', 'Delhi'}
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities2 = {"Tokyo", "Seoul", "Kabul", "Madrid"}
+cities.update(cities2)
+print(cities)
+Output:
+{'Berlin', 'Madrid', 'Tokyo', 'Delhi', 'Kabul', 'Seoul'}
+
+- intersection() and intersection_update():
+The intersection() and intersection_update() methods prints only items that are similar to both the sets. The intersection() method returns a new set whereas intersection_update() method updates into the existing set from another set.
+
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities2 = {"Tokyo", "Seoul", "Kabul", "Madrid"}
+cities3 = cities.intersection(cities2)
+print(cities3)
+Output:
+{'Madrid', 'Tokyo'}
+Example :
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities2 = {"Tokyo", "Seoul", "Kabul", "Madrid"}
+cities.intersection_update(cities2)
+print(cities)
+Output:
+{'Tokyo', 'Madrid'}
+
+- symmetric_difference and symmetric_difference_update():
+The symmetric_difference() and symmetric_difference_update() methods prints only items that are not similar to both the sets. The symmetric_difference() method returns a new set whereas symmetric_difference_update() method updates into the existing set from another set.
+
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities2 = {"Tokyo", "Seoul", "Kabul", "Madrid"}
+cities3 = cities.symmetric_difference(cities2)
+print(cities3)
+Output:
+{'Seoul', 'Kabul', 'Berlin', 'Delhi'}
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities2 = {"Tokyo", "Seoul", "Kabul", "Madrid"}
+cities.symmetric_difference_update(cities2)
+print(cities)
+Output:
+{'Kabul', 'Delhi', 'Berlin', 'Seoul'}
+
+- difference() and difference_update():
+The difference() and difference_update() methods prints only items that are only present in the original set and not in both the sets. The difference() method returns a new set whereas difference_update() method updates into the existing set from another set.
+
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities2 = {"Seoul", "Kabul", "Delhi"}
+cities3 = cities.difference(cities2)
+print(cities3)
+Output:
+{'Tokyo', 'Madrid', 'Berlin'}
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities2 = {"Seoul", "Kabul", "Delhi"}
+print(cities.difference(cities2))
+Output:
+{'Tokyo', 'Berlin', 'Madrid'}
+
+________________________________
+
+* set methods:
+- isdisjoint():
+The isdisjoint() method checks if items of given set are present in another set. This method returns False if items are present, else it returns True.
+
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities2 = {"Tokyo", "Seoul", "Kabul", "Madrid"}
+print(cities.isdisjoint(cities2))
+Output:
+False
+
+- issuperset():
+The issuperset() method checks if all the items of a particular set are present in the original set. It returns True if all the items are present, else it returns False.
+
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities2 = {"Seoul", "Kabul"}
+print(cities.issuperset(cities2))
+cities3 = {"Seoul", "Madrid","Kabul"}
+print(cities.issuperset(cities3))
+
+o Bahar wala check hota hai andar wale se
+Output:
+False
+False
+
+- issubset():
+The issubset() method checks if all the items of the original set are present in the particular set. It returns True if all the items are present, else it returns False.
+
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities2 = {"Delhi", "Madrid"}
+print(cities2.issubset(cities))
+
+o Bahar wala check hota hai andar wale se
+Output:
+True
+
+- add()
+If you want to add a single item to the set use the add() method.
+
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities.add("Helsinki")
+print(cities)
+Output:
+{'Tokyo', 'Helsinki', 'Madrid', 'Berlin', 'Delhi'}
+
+- update()
+If you want to add more than one item, simply create another set or any other iterable object(list, tuple, dictionary), and use the update() method to add it into the existing set.
+
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities2 = {"Helsinki", "Warsaw", "Seoul"}
+cities.update(cities2)
+print(cities)
+Output:
+{'Seoul', 'Berlin', 'Delhi', 'Tokyo', 'Warsaw', 'Helsinki', 'Madrid'}
+
+- remove()/discard()
+We can use remove() and discard() methods to remove items form list.
+
+Example :
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities.remove("Tokyo")
+print(cities)
+Output:
+{'Delhi', 'Berlin', 'Madrid'}
+
+The main difference between remove and discard is that, if we try to delete an item which is not present in set, then remove() raises an error, whereas discard() does not raise any error.
+
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities.remove("Seoul")
+print(cities)
+Output:
+KeyError: 'Seoul'
+
+- pop()
+This method removes the last item of the set but the catch is that we don’t know which item gets popped as sets are unordered. However, you can access the popped item if you assign the pop() method to a variable.
+
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+item = cities.pop()
+print(cities)
+print(item)
+Output:
+{'Tokyo', 'Delhi', 'Berlin'} Madrid
+
+- del
+del is not a method, rather it is a keyword which deletes the set entirely.
+
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+del cities
+print(cities)
+Output:
+NameError: name 'cities' is not defined We get an error because our entire set has been deleted and there is no variable called cities which contains a set.
+
+What if we don’t want to delete the entire set, we just want to delete all items within that set?
+
+- clear():
+This method clears all items in the set and prints an empty set.
+
+Example:
+cities = {"Tokyo", "Madrid", "Berlin", "Delhi"}
+cities.clear()
+print(cities)
+Output:
+set()
+
+- Check if item exists
+You can also check if an item exists in the set or not.
+
+Example
+info = {"Carla", 19, False, 5.9}
+if "Carla" in info:
+    print("Carla is present.")
+else:
+    print("Carla is absent.")
+Output:
+Carla is present.
+
+________________________________
+
+* dictionaries:
+Dictionaries are ordered collection of data items. They store multiple items in a single variable. Dictionary items are key-value pairs that are separated by commas and enclosed within curly brackets {}.
+
+Example:
+info = {'name':'Karan', 'age':19, 'eligible':True}
+print(info)
+Output:
+{'name': 'Karan', 'age': 19, 'eligible': True}
+
+- Accessing Dictionary items:
+I. Accessing single values:
+Values in a dictionary can be accessed using keys. We can access dictionary values by mentioning keys either in square brackets or by using get method.
+
+Example:
+info = {'name':'Karan', 'age':19, 'eligible':True}
+print(info['name'])
+print(info.get('eligible'))
+Output:
+Karan
+True
+
+II. Accessing multiple values:
+We can print all the values in the dictionary using values() method.
+
+Example:
+info = {'name':'Karan', 'age':19, 'eligible':True}
+print(info.values())
+Output:
+dict_values(['Karan', 19, True])
+
+III. Accessing keys:
+We can print all the keys in the dictionary using keys() method.
+
+Example:
+info = {'name':'Karan', 'age':19, 'eligible':True}
+print(info.keys())
+Output:
+dict_keys(['name', 'age', 'eligible'])
+
+IV. Accessing key-value pairs:
+We can print all the key-value pairs in the dictionary using items() method.
+
+Example:
+info = {'name':'Karan', 'age':19, 'eligible':True}
+print(info.items())
+Output:
+dict_items([('name', 'Karan'), ('age', 19), ('eligible', True)])
+
+________________________________
+
+* Dictionary methods:
+
+- update()
+The update() method updates the value of the key provided to it if the item already exists in the dictionary, else it creates a new key-value pair.
+
+Example:
+info = {'name':'Karan', 'age':19, 'eligible':True}
+print(info)
+info.update({'age':20})
+info.update({'DOB':2001})
+print(info)
+Output:
+{'name': 'Karan', 'age': 19, 'eligible': True}
+{'name': 'Karan', 'age': 20, 'eligible': True, 'DOB': 2001}
+
+- Removing items from dictionary:
+There are a few methods that we can use to remove items from dictionary.
+
+clear():
+The clear() method removes all the items from the list.
+
+Example:
+info = {'name':'Karan', 'age':19, 'eligible':True}
+info.clear()
+print(info)
+Output:
+{}
+
+- pop():
+The pop() method removes the key-value pair whose key is passed as a parameter.
+
+Example:
+info = {'name':'Karan', 'age':19, 'eligible':True}
+info.pop('eligible')
+print(info)
+Output:
+{'name': 'Karan', 'age': 19}
+
+- popitem():
+The popitem() method removes the last key-value pair from the dictionary.
+
+Example:
+info = {'name':'Karan', 'age':19, 'eligible':True, 'DOB':2003}
+info.popitem()
+print(info)
+Output:
+{'name': 'Karan', 'age': 19, 'eligible': True}
+
+- del:
+we can also use the del keyword to remove a dictionary item.
+
+Example:
+info = {'name':'Karan', 'age':19, 'eligible':True, 'DOB':2003}
+del info['age']
+print(info)
+Output:
+{'name': 'Karan', 'eligible': True, 'DOB': 2003}
+If key is not provided, then the del keyword will delete the dictionary entirely.
+
+Example:
+info = {'name':'Karan', 'age':19, 'eligible':True, 'DOB':2003}
+del info
+print(info)
+Output:
+NameError: name 'info' is not defined
+
+________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

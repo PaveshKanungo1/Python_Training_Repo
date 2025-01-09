@@ -1,0 +1,590 @@
+* What is Python?
+1. Python is a dynamically-typed, general purpose programming language that supports an object-oriented programming approach as well as functional programming approach.
+2. Python is an interpreted and a high-level programming language.
+3. It was created by Guido Van Rossum in 1989.
+
+________________________________
+
+* Features of Python:
+1. Python is simple and easy to understand.
+2. It is interpreted and platform-independent which makes debugging very easy.
+3. Python is an open-source programming language.
+4. Python provides very big language support. Some of the popular libraries include NumPy, Tensorflow, Selenium, OpenCV, etc.
+5. It is possible to integrate other programming languages with python.
+
+________________________________
+
+* What is Python used for?
+1. Python is used in data visualization to create plots and graphical representations.
+2. Python helps in data analytics to analyze and understand raw data for insights and trends.
+3. It is used in AI and Machine Learning to simulate human behaviour and to learn from past data without hard coding.
+4. It is used to create web applications.
+5. It can be used to handle databases.
+6. It is used in business and accounting to perform complex mathematical operations along with quantitaive and qualitative analysis.
+
+________________________________
+
+* What is modules and pip?
+Modules is like a code-library which can be used to borrow code from somebody else in our python program.
+Two types of modules in python:
+1. Built-in Modules: These modules are ready to import and use and ships with the python interpreter. No need to install such modules explicitly.
+2. External Modules: These modules are imported from a third party file or can be installed using a package manager like pip or conda. 
+
+pip command:
+It can be used a package manager pip to install a python module.
+eg. pip3 install python  (pip3 for macOS and pip for windows)
+
+Using a module in python: we can use the import syntax to import a module in python.
+eg. import pandas
+
+    # Read and work with a file named 'words.csv'
+    df = pandas.read_csv('words.csv')
+    print(df) # This will display first few rows from the words.csv file
+
+________________________________
+
+* Comments, Escape sequences & Print in python:
+Single-line comment: '#' by adding this at the start of the line.
+eg1. 
+# This is a single line comment
+print("Hello World!")
+
+Multi-line comment: by adding three double quotes or single quotes.
+eg. ''' this is a multi-line comment '''
+eg. """ this is a multi-line comment"""
+
+- Escape Sequence Characters:
+To insert Characters that can't be directly used in a string, we use an escape sequence character.
+An escape sequence character is '\' backslash followed by the character we want.
+eg. 
+print("This doesnt" execute")  # we can't use double quotes like this without using escape sequence character
+print("This will \" execute \"")
+
+- More on print statement:
+syntax: 
+print(object(s), sep=seperator, end=end, file=file, flush=flush)
+About other parameters of print statement -
+1. object(s): Any object we like to have here. This will be converted to string before printing
+2. sep='seperator': This specifies how to seperate the objects. Default is ' '.
+3. end='end': Specifies what to print at the end. Default is '\n'
+4. file: an object with a write method. Default is sys.stdout
+
+Parameters 2 to 5 are optional
+
+eg. 
+print("pavesh is a good boy", 6, 7, 8, sep = '~', end="\n")
+print("Next Line due to end used in above print statement")
+
+________________________________
+
+* Variables and Data Types:
+- Variables: used for holding the data, means creating a placeholder in memory and assigning it some value
+eg.
+a = 1
+b = True
+c = "Pavesh"
+d = None
+
+- Data Type: specifies type of value a variable holds
+eg. 
+a = 1
+print(type(a))
+b = "1"
+print(type(b))
+
+1. Numeric data: int, float, complex
+int: 3, -8, 0
+float: 7.349, -9.0, 0.000001
+complex: 3+2i
+
+2. Text data: str
+str: "HelloPavesh"
+
+3. Boolean data: consists of True of False
+
+4. Sequenced data: list, tuple
+list: It is an ordered collection of data with elements seperated by comma and enclosed within square brackets. Lists are mutable and can be modified after creation.
+eg. list1 = [8, 2.3, [-4, 5], ["apple", "banana"]]
+print(list1)
+
+tuple: It is an ordered collection of data with elements seperated by a comma and enclosed within parentheses. Tuples are immutable and can't be modified after creation.
+eg. tuple1 = (("parrot", "camel"), ("human", "elephant"))
+print(tuple1)
+
+5. Mapped data: dict
+dict: dict is an unordered collection of data containing a key: value pair. The key:value pairs are enclosed within curly brackets.
+eg. dict1 = {"name": "Pavesh", "age": 20, "canVote": True}
+print(dict1)
+
+Note: In python, every data type is an object means int, float, list, tuple, etc are objects.
+We can check this by printing their type.
+a = 1
+print(type(a)) #Here, taking 'a' as integer
+
+________________________________
+
+* Operators:
+- Arithmetic Operators:
+Operator        OperatorName        Example
+    +            Addition           15+7
+    -            Subtraction        15-7
+    *            Multiplication     5*7
+    **           Power              5**3 means 125 (5^3)
+    /            Division           5/3
+    %            Modulus            5%3
+    //           Floor Division     5//3 (1.6 means 1)
+
+- Comparison Operators:
+These operators compare two values and return a boolean (True or False):
+1. == (Equal):
+Checks if two values are equal.
+Example:
+5 == 5  # True
+5 == 3  # False
+
+2. != (Not Equal):
+Checks if two values are not equal.
+Example:
+5 != 3  # True
+5 != 5  # False
+
+3. > (Greater Than):
+Checks if the left value is greater than the right.
+Example:
+7 > 5  # True
+5 > 7  # False
+
+4. < (Less Than):
+Checks if the left value is less than the right.
+Example:
+3 < 5  # True
+5 < 3  # False
+
+5. >= (Greater Than or Equal To):
+Checks if the left value is greater than or equal to the right.
+Example:
+5 >= 5  # True
+4 >= 5  # False
+
+- Logical Operators:
+1. and (Logical AND):
+Returns True if both conditions are True.
+Example:
+(5 > 3) and (4 < 6)  # True
+(5 > 3) and (4 > 6)  # False
+
+2. or (Logical OR):
+Returns True if at least one condition is True.
+Example:
+(5 > 3) or (4 > 6)  # True
+(5 < 3) or (4 > 6)  # False
+
+3. not (Logical NOT):
+Inverts the boolean value.
+Example:
+not (5 > 3)  # False
+not (5 < 3)  # True
+
+________________________________
+
+* Typecasting in python:  
+Two types of Typecasting -
+1. Explicit Typecasting - Conversion done by programmer, can be done using python built-in functions such as int(), float(), hex(), oct(), etc.
+Example of explicit typecasting:
+    string = "15"
+    number = 7
+    string_number = int(string) #throws an error if the string is not a valid integer
+    sum= number + string_number
+    print("The Sum of both the numbers is: ", sum)
+
+2. Implicit Typecasting -
+Data types in Python do not have the same level i.e. ordering of data types is not the same in Python. Some of the data types have higher-order, and some have lower order. While performing any operations on variables with different data types in Python, one of the variable's data types will be changed to the higher data type. According to the level, one data type is converted into other by the Python interpreter itself (automatically). This is called, implicit typecasting in python.
+
+Note: Python converts a smaller data type to a higher data type to prevent data loss.
+
+Example of implicit type casting::
+    # Python automatically converts
+    # a to int
+    a = 7
+    print(type(a))
+    
+    # Python automatically converts b to float
+    b = 3.0
+    print(type(b))
+    
+    # Python automatically converts c to float as it is a float addition
+    c = a + b
+    print(c)
+    print(type(c))
+
+Ouput:
+    <class 'int'>
+    <class 'float'>
+    10.0
+    <class 'float'>
+
+________________________________
+
+* Taking User Input:
+In python, we take input from the user by using input() function. It returns string/character hence we have to pass that into a variable
+Syntax:
+variable=input()
+
+Note: But input function returns the value as string. Hence we have to typecast them whenever required to another datatype.
+
+Example:
+variable=int(input())
+variable=float(input())
+
+We can also display a text using input function. This will make input() function take user input and display a message as well.
+
+Example:
+a=input("Enter the name: ")
+print(a)
+
+________________________________
+
+* What are Strings?
+In python, anything we enclose between single or double quotation marks is considered a string. A string is essentially a sequence or array of textual data. Strings are used when working with Unicode characters.
+
+eg:
+name = "Harry"
+print("Hello, " + name)
+
+Sometimes, the user might need to put quotation marks in between the strings. Example, consider the sentence: He said, “I want to eat an apple”.
+He said, "I want to eat an apple". We will definitely use single quotes for our convenience.
+print('He said, "I want to eat an apple".')
+
+- Multiline Strings:
+If our string has multiple lines, we can create them like this:
+
+a = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua."""
+print(a)
+
+- Accessing Characters of a String:
+eg. print(name[0])
+    print(name[1])
+
+- Looping through the string:
+We can loop through strings using a for loop like this:
+eg.
+for character in name:
+    print(character)
+
+Above code prints all the characters in the string name one by one!
+
+________________________________
+
+* String Slicing and Operations on Strings in Python:
+- Length of a String: len(type string inside this bracket) function
+Example:
+fruit = "Mango"
+len1 = len(fruit)
+print("Mango is a", len1, "letter word.")
+
+Output:
+Mango is a 5 letter word.
+
+- String as an array
+A string is essentially a sequence of characters also called an array. Thus we can access the elements of this array.
+
+Example:
+pie = "ApplePie"
+print(pie[:5])
+print(pie[6])	#returns character at specified index
+Output:
+Apple
+i
+
+Note: This method of specifying the start and end index to specify a part of a string is called slicing.
+
+- Slicing Example:
+pie = "ApplePie"
+print(pie[:5])      #Slicing from Start
+print(pie[5:])      #Slicing till End
+print(pie[2:6])     #Slicing in between
+print(pie[-8:])     #Slicing using negative index, whenever it is negative, then is taken into      positive as len(pie)-8 i.e. 0 that's why it is printing ApplePie
+
+Output:
+Apple
+Pie
+pleP
+ApplePie
+
+- Loop through a String:
+Strings are arrays and arrays are iterable. Thus we can loop through strings.
+
+Example:
+alphabets = "ABCDE"
+for i in alphabets:
+    print(i)
+
+Output:
+A
+B
+C
+D
+E
+
+________________________________
+
+* String methods in Python:
+Python provides a set of built-in methods that we can use to alter and modify the strings.
+
+- upper() :
+The upper() method converts a string to upper case.
+
+Example:
+str1 = "AbcDEfghIJ"
+print(str1.upper())
+
+- lower()
+The lower() method converts a string to lower case.
+
+Example:
+str1 = "AbcDEfghIJ"
+print(str1.lower())
+
+- strip() :
+The strip() method removes any white spaces before and after the string.
+
+Example:
+str2 = " Silver Spoon "
+print(str2.strip)
+
+- rstrip() :
+the rstrip() removes any trailing characters. Example:
+
+str3 = "Hello !!!"
+print(str3.rstrip("!"))
+
+- replace() :
+The replace() method replaces all occurences of a string with another string. Example:
+
+str2 = "Silver Spoon"
+print(str2.replace("Sp", "M"))
+
+- split() :
+The split() method splits the given string at the specified instance and returns the separated strings as list items.
+
+Example:
+str2 = "Silver Spoon"
+print(str2.split(" "))      #Splits the string at the whitespace " ".
+Output:
+['Silver', 'Spoon']
+There are various other string methods that we can use to modify our strings.
+
+- capitalize() :
+The capitalize() method turns only the first character of the string to uppercase and the rest other characters of the string are turned to lowercase. The string has no effect if the first character is already uppercase.
+
+Example:
+str1 = "hello"
+capStr1 = str1.capitalize()
+print(capStr1)
+str2 = "hello WorlD"
+capStr2 = str2.capitalize()
+print(capStr2)
+
+- center() :
+The center() method aligns the string to the center as per the parameters given by the user.
+
+Example:
+str1 = "Welcome to the Console!!!"
+print(str1.center(50))
+Output:
+            Welcome to the Console!!!
+
+Example:
+str1 = "Welcome to the Console!!!"
+print(str1.center(50, "."))
+Output:
+............Welcome to the Console!!!.............
+
+- count() :
+The count() method returns the number of times the given value has occurred within the given string.
+
+Example:
+str2 = "Abracadabra"
+countStr = str2.count("a")
+print(countStr)
+Output:
+4
+
+- endswith() :
+The endswith() method checks if the string ends with a given value. If yes then return True, else return False.
+
+Example :
+str1 = "Welcome to the Console !!!"
+print(str1.endswith("!!!"))
+Output:
+True
+
+We can even also check for a value in-between the string by providing start and end index positions.
+
+Example:
+str1 = "Welcome to the Console !!!"
+print(str1.endswith("to", 4, 10))
+Output:
+True
+
+- find() :
+The find() method searches for the first occurrence of the given value and returns the index where it is present. If given value is absent from the string then return -1.
+
+Example:
+str1 = "He's name is Dan. He is an honest man."
+print(str1.find("is"))
+Output:
+10
+As we can see, this method is somewhat similar to the index() method. The major difference being that index() raises an exception if value is absent whereas find() does not.
+
+Example:
+str1 = "He's name is Dan. He is an honest man."
+print(str1.find("Daniel"))
+Output:
+-1
+
+- index() :
+The index() method searches for the first occurrence of the given value and returns the index where it is present. If given value is absent from the string then raise an exception.
+
+Example:
+str1 = "He's name is Dan. Dan is an honest man."
+print(str1.index("Dan"))
+Output:
+13
+As we can see, this method is somewhat similar to the find() method. The major difference being that index() raises an exception if value is absent whereas find() does not.
+
+Example:
+str1 = "He's name is Dan. Dan is an honest man."
+print(str1.index("Daniel"))
+Output:
+ValueError: substring not found
+
+- isalnum() :
+The isalnum() method returns True only if the entire string only consists of A-Z, a-z, 0-9. If any other characters or punctuations are present, then it returns False.
+
+Example 1:
+str1 = "WelcomeToTheConsole"
+print(str1.isalnum())
+Output:
+
+True
+
+- isalnum() :
+The isalnum() method returns True only if the entire string only consists of A-Z, a-z, 0-9. If any other characters or punctuations are present, then it returns False.
+
+Example 1:
+str1 = "WelcomeToTheConsole"
+print(str1.isalnum())
+Output:
+
+True
+
+- islower() :
+The islower() method returns True if all the characters in the string are lower case, else it returns False.
+
+Example:
+str1 = "hello world"
+print(str1.islower())
+Output:
+True
+
+- isprintable() :
+The isprintable() method returns True if all the values within the given string are printable, if not, then return False.
+
+Example :
+str1 = "We wish you a Merry Christmas"
+print(str1.isprintable())
+Output:
+True
+
+- isspace() :
+The isspace() method returns True only and only if the string contains white spaces, else returns False.
+
+Example:
+str1 = "        "       #using Spacebar
+print(str1.isspace())
+str2 = "        "       #using Tab
+print(str2.isspace())
+Output:
+True
+True
+
+- istitle() :
+The istitile() returns True only if the first letter of each word of the string is capitalized, else it returns False.
+
+Example:
+str1 = "World Health Organization" 
+print(str1.istitle())
+Output:
+True
+Example:
+str2 = "To kill a Mocking bird"
+print(str2.istitle())
+Output:
+False
+
+- isupper() :
+The isupper() method returns True if all the characters in the string are upper case, else it returns False.
+
+Example :
+str1 = "WORLD HEALTH ORGANIZATION" 
+print(str1.isupper())
+Output:
+True
+
+- startswith() :
+The endswith() method checks if the string starts with a given value. If yes then return True, else return False.
+
+Example :
+str1 = "Python is a Interpreted Language" 
+print(str1.startswith("Python"))
+Output:
+True
+
+- swapcase() :
+The swapcase() method changes the character casing of the string. Upper case are converted to lower case and lower case to upper case.
+
+Example:
+str1 = "Python is a Interpreted Language" 
+print(str1.swapcase())
+Output:
+pYTHON IS A iNTERPRETED lANGUAGE
+
+- title() :
+The title() method capitalizes each letter of the word within the string.
+
+Example:
+str1 = "He's name is Dan. Dan is an honest man."
+print(str1.title())
+Output:
+He'S Name Is Dan. Dan Is An Honest Man.
+
+________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

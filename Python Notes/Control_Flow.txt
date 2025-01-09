@@ -1,0 +1,210 @@
+* if-else Conditionals:
+Based on this, the conditional statements are further classified into following types:
+if
+if-else
+if-else-elif
+nested if-else-elif.
+
+- if-else:
+applePrice = 210
+budget = 200
+if (applePrice <= budget):
+    print("Alexa, add 1 kg Apples to the cart.")
+else:
+    print("Alexa, do not add Apples to the cart.")
+
+- if-else-elif:
+num = 0
+if (num < 0):
+    print("Number is negative.")
+elif (num == 0):
+    print("Number is Zero.")
+else:
+    print("Number is positive.")
+
+- nested if-else-elif:
+num = 18
+if (num < 0):
+    print("Number is negative.")
+elif (num > 0):
+    if (num <= 10):
+        print("Number is between 1-10")
+    elif (num > 10 and num <= 20):
+        print("Number is between 11-20")
+    else:
+        print("Number is greater than 20")
+else:
+    print("Number is zero")
+
+________________________________
+
+* match-case statements:
+Similar to switch-case statements.
+In c++, while using switch-case statements, we are required to use break always but here we are not required to use break, it executes the matched case only.
+
+The match case consists of three main entities :
+The match keyword
+One or more case clauses
+Expression for each case
+
+Syntax:
+match variable_name:
+            case ‘pattern1’ : //statement1
+            case ‘pattern2’ : //statement2
+            …            
+            case ‘pattern n’ : //statement n
+
+example:
+x = int(input("Enter the value of x: "))
+# x is the variable to match
+match x:
+    # if x is 0
+    case 0:
+        print("x is zero")
+    # case with if-condition
+    case 4:
+        print("case is 4")
+
+    case _ if x!=90:         
+        print(x, "is not 90")
+    case _ if x!=80:
+        print(x, "is not 80")
+    case _:
+        print(x)
+
+Note: case _: #this means the default case, we can also use if statements in default case
+
+________________________________
+
+* Introduction to Loops:
+In python, Based on this loops are further classified into following main types;
+for loop
+while loop
+
+- The for Loop:
+for loops can iterate over a sequence of iterable objects in python. Iterating over a sequence is nothing but iterating over strings, lists, tuples, sets and dictionaries.
+
+Example: iterating over a string:
+name = 'Abhishek'
+for i in name:
+    print(i, end=", ")
+Output:
+A, b, h, i, s, h, e, k,
+
+Example: iterating over a list:
+colors = ["Red", "Green", "Blue", "Yellow"]
+for x in colors:
+    print(x)
+Output:
+Red
+Green
+Blue
+Yellow
+
+Similarly, we can use loops for lists, sets and dictionaries.
+
+- range():
+when we want to use for loop for a specific number of times.
+Example:
+for k in range(5):
+    print(k)
+Output:
+0
+1
+2
+3
+4
+Here, we can see that the loop starts from 0 by default and increments at each iteration.
+
+But we can also loop over a specific range.
+
+Example:
+for k in range(4,9):
+    print(k)
+Output:
+4
+5
+6
+7
+8
+
+Positive Step:
+for i in range(1, 10, 2):
+    print(i)
+Output:
+1
+3
+5
+7
+9
+Starts at 1, increments by 2, and stops before 10.
+Negative Step:
+for i in range(10, 0, -2):
+    print(i)
+Output:
+10
+8
+6
+4
+2
+
+________________________________
+
+* while Loops in Python:
+Example:
+count = 5
+while (count > 0):
+  print(count)
+  count = count - 1
+Output:
+5
+4
+3
+2
+1
+
+-Else with While Loop:
+We can even use the else statement with the while loop. Essentially what the else statement does is that as soon as the while loop condition becomes False, the interpreter comes out of the while loop and the else statement is executed.
+Example:
+x = 5
+while (x > 0):
+    print(x)
+    x = x - 1
+else:
+    print('counter is 0')
+Output:
+5
+4
+3
+2
+1
+counter is 0
+
+- Here, in python, there is no do-while loop so
+- How to emulate do while loop in python?
+The most common technique to emulate a do-while loop in Python is to use an infinite while loop with a break statement wrapped in an if statement that checks a given condition and breaks the iteration if that condition becomes true:
+Example
+while True:
+  number = int(input("Enter a positive number: "))
+  print(number)
+  if not number > 0:
+    break
+Output
+Enter a positive number: 1
+1
+Enter a positive number: 4
+4
+Enter a positive number: -1
+-1
+
+________________________________
+
+* break and continue in python:
+same as other languages
+
+________________________________
+
+
+
+
+

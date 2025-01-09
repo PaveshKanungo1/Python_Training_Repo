@@ -1,0 +1,177 @@
+* Functions in Python:
+There are two types of functions:
+1. Built-in functions
+2. User-defined functions
+
+- Built-in functions:
+Some examples of built-in functions are as follows:
+min(), max(), len(), sum(), type(), range(), dict(), list(), tuple(), set(), print(), etc.
+
+- User-defined functions:
+Syntax:
+def function_name(parameters):
+  pass
+  # Code and Statements
+
+1. Create a function using the def keyword, followed by a function name, followed by a paranthesis (()) and a colon(:).
+2. Any parameters and arguments should be placed within the parentheses.
+3. Rules to naming function are similar to that of naming variables.
+4. Any statements and other code within the function should be indented.
+
+- Calling a function:
+We call a function by giving the function name, followed by parameters (if any) in the parenthesis.
+
+Example:
+def name(fname, lname):
+    print("Hello,", fname, lname)
+name("Sam", "Wilson")
+
+Output:
+Hello, Sam Wilson
+
+________________________________
+
+* What is "pass" in python?
+pass is a statement that does nothing when executed. It acts as a placeholder and is often used when a statement is syntactically required but no action is needed or defined yet.
+- Common Use Cases for pass:
+1. Placeholders for Future Code:
+We can use pass to create a skeleton for our code, allowing you to define the structure without implementing functionality immediately.
+eg.
+def my_function():
+    pass  # Implementation to be added later
+
+2. Empty Class Definitions
+Use pass when defining a class that we intend to implement later.
+eg.
+class MyClass:
+    pass  # This class will be implemented later
+
+3. Within Loops
+If a loop is required but doesn't need to perform any action in certain conditions, we can use pass.
+eg.
+for i in range(5):
+    if i == 3:
+        pass  # Do nothing for i == 3
+    else:
+        print(i)
+
+4. Exception Handling: We can use pass in a try-except block when we don't want to handle an exception but need to catch it temporarily.
+eg.
+try:
+    risky_operation()
+except ValueError:
+    pass  # Ignore the ValueError
+
+- Key Notes:
+1. pass is not the same as a comment. While comments are ignored entirely by the interpreter, pass is executed (but does nothing).
+2. It is primarily a tool for readability and code organization during development.
+
+________________________________
+
+* Function Arguments and return statement in python:
+There are four types of arguments that we can provide in a function:
+1. Default Arguments
+2. Keyword Arguments
+3. Variable length Arguments
+4. Required Arguments
+
+- Default arguments:
+We can provide a default value while creating a function. This way the function assumes a default value even if a value is not provided in the function call for that argument.
+Example:
+def name(fname, mname = "Jhon", lname = "Whatson"):
+    print("Hello,", fname, mname, lname)
+name("Amy")
+Output:
+Hello, Amy Jhon Whatson
+
+- Keyword arguments:
+We can provide arguments with key = value, this way the interpreter recognizes the arguments by the parameter name. Hence, the the order in which the arguments are passed does not matter.
+Example:
+def name(fname, mname, lname):
+    print("Hello,", fname, mname, lname)
+name(mname = "Peter", lname = "Wesker", fname = "Jade")
+Output:
+Hello, Jade Peter Wesker
+
+Note: If we write above thing in c++, then that will provide different result.
+Code in C++ with Output:
+#include <iostream>
+using namespace std;
+void function(int a, int b=3){
+    cout<<a<<" "<<b;
+}
+int main()
+{
+    int a, b;
+    function(b=6, a=3);
+    return 0;
+}
+Output:
+6 3
+
+- Required arguments:
+In case we don’t pass the arguments with a key = value syntax, then it is necessary to pass the arguments in the correct positional order and the number of arguments passed should match with actual function definition.
+Example 1: when number of arguments passed does not match to the actual function definition.
+def name(fname, mname, lname):
+    print("Hello,", fname, mname, lname)
+name("Peter", "Quill")
+Output:
+name("Peter", "Quill")\
+TypeError: name() missing 1 required positional argument: 'lname'
+
+- Variable-length arguments:
+Sometimes we may need to pass more arguments than those defined in the actual function. This can be done using variable-length arguments.
+There are two ways to achieve this:
+--- Arbitrary Arguments:
+While creating a function, pass a * before the parameter name while defining the function. The function accesses the arguments by processing them in the form of tuple.
+Example:
+def name(*name):
+    print("Hello,", name[0], name[1], name[2])
+name("James", "Buchanan", "Barnes")
+Output:
+Hello, James Buchanan Barnes
+
+--- keyword Arbitrary Arguments:
+While creating a function, pass a ** before the parameter name while defining the function. The function accesses the arguments by processing them in the form of dictionary.
+Example:
+def name(**name):
+    print("Hello,", name["fname"], name["mname"], name["lname"])
+name(mname = "Buchanan", lname = "Barnes", fname = "James")
+Output:
+Hello, James Buchanan Barnes
+
+- return Statement
+The return statement is used to return the value of the expression back to the calling function.
+Example:
+def name(fname, mname, lname):
+    return "Hello, " + fname + " " + mname + " " + lname
+print(name("James", "Buchanan", "Barnes"))
+Output:
+Hello, James Buchanan Barnes
+
+Example for section topics:
+# def average(a, b, c=1):
+#   print("The average is ", (a + b + c) / 2)
+
+def average(*numbers):
+  # print(type(numbers))
+  sum = 0
+  for i in numbers:
+    sum = sum + i
+  # print("Average is: ", sum / len(numbers))
+  # return 7
+  return sum / len(numbers)
+
+# average(4, 6)
+# average(b=9)
+
+c = average(5, 6, 7, 1)
+print(c)
+
+# def name(**name):
+#   # print(type(name))
+#   print("Hello,", name["fname"], name["mname"], name["lname"])
+
+# name(mname="Buchanan", lname="Barnes", fname="James")
+
+________________________________
