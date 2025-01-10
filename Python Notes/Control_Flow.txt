@@ -457,6 +457,235 @@ In summary, the if __name__ == "__main__" idiom is a common pattern used in Pyth
 ________________________________
 
 
+* os-module in python:
+The os module in Python is a built-in library that provides functions for interacting with the operating system. It allows you to perform a wide variety of tasks, such as reading and writing files, interacting with the file system, and running system commands.
+
+Reading and writing files The os module provides functions for opening, reading, and writing files. For example, to open a file for reading, you can use the open function:
+
+import os
+
+# Open the file in read-only mode
+f = os.open("myfile.txt", os.O_RDONLY)
+
+# Read the contents of the file
+contents = os.read(f, 1024)
+
+# Close the file
+os.close(f)
+
+- To open a file for writing, you can use the os.O_WRONLY flag:
+
+import os
+# Open the file in write-only mode
+f = os.open("myfile.txt", os.O_WRONLY)
+# Write to the file
+os.write(f, b"Hello, world!")
+# Close the file
+os.close(f)
+
+- Interacting with the file system
+The os module also provides functions for interacting with the file system. For example, you can use the os.listdir function to get a list of the files in a directory:
+
+import os
+# Get a list of the files in the current directory
+files = os.listdir(".")
+print(files)  # Output: ['myfile.txt', 'otherfile.txt']
+
+- You can also use the os.mkdir function to create a new directory:
+
+import os
+# Create a new directory
+os.mkdir("newdir")
+
+- Running system commands
+Finally, the os module provides functions for running system commands. For example, you can use the os.system function to run a command and get the output:
+
+import os
+# Run the "ls" command and print the output
+output = os.system("ls")
+print(output)  # Output: ['myfile.txt', 'otherfile.txt']
+
+- You can also use the os.popen function to run a command and get the output as a file-like object:
+
+import os
+# Run the "ls" command and get the output as a file-like object
+f = os.popen("ls")
+# Read the contents of the output
+output = f.read()
+print(output)  # Output: ['myfile.txt', 'otherfile.txt']
+# Close the file-like object
+f.close()
+
+________________________________
+
+* local and global variables:
+A variable is a named location in memory that stores a value. In Python, we can assign values to variables using the assignment operator =. For example:
+x = 5
+y = "Hello, World!"
+
+- A local variable is a variable that is defined within a function and is only accessible within that function. It is created when the function is called and is destroyed when the function returns.
+
+Example:
+x = 10 # global variable
+def my_function():
+  y = 5 # local variable
+  print(y)
+my_function()
+print(x)
+print(y) # this will cause an error because y is a local variable and is not accessible outside of the function
+
+In this example, we have a global variable x and a local variable y. We can access the value of the global variable x from within the function, but we cannot access the value of the local variable y outside of the function.
+
+- The global keyword:
+The global keyword is used to declare that a variable is a global variable and should be accessed from the global scope. Here's an example:
+
+x = 10 # global variable
+def my_function():
+  global x
+  x = 5 # this will change the value of the global variable x
+  y = 5 # local variable
+my_function()
+print(x) # prints 5
+print(y) # this will cause an error because y is a local variable and is not accessible outside of the function
+
+In this example, we used the global keyword to declare that we want to modify the global variable x from within the function. As a result, the value of x is changed to 5.
+
+It's important to note that it's generally considered good practice to avoid modifying global variables from within functions, as it can lead to unexpected behavior and make your code harder to debug.
+
+________________________________
+
+* Lambda functions in python:
+In Python, a lambda function is a small anonymous function without a name. It is defined using the lambda keyword and has the following syntax:
+
+lambda arguments: expression
+
+Lambda functions are often used in situations where a small function is required for a short period of time. They are commonly used as arguments to higher-order functions, such as map, filter, and reduce.
+
+Here is an example of how to use a lambda function:
+
+# Function to double the input
+def double(x):
+  return x * 2
+# Lambda function to double the input
+lambda x: x * 2
+
+The above lambda function has the same functionality as the double function defined earlier. However, the lambda function is anonymous, as it does not have a name.
+
+Lambda functions can have multiple arguments, just like regular functions. Here is an example of a lambda function with multiple arguments:
+
+# Function to calculate the product of two numbers
+def multiply(x, y):
+    return x * y
+# Lambda function to calculate the product of two numbers
+lambda x, y: x * y
+
+Lambda functions can also include multiple statements, but they are limited to a single expression. For example:
+
+# Lambda function to calculate the product of two numbers,
+# with additional print statement
+lambda x, y: print(f'{x} * {y} = {x * y}')
+In the above example, the lambda function includes a print statement, but it is still limited to a single expression.
+
+Lambda functions are often used in conjunction with higher-order functions, such as map, filter, and reduce which we will look into later.
+
+________________________________
+
+* Map, Filter and Reduce functions:
+In Python, the map, filter, and reduce functions are built-in functions that allow you to apply a function to a sequence of elements and return a new sequence. These functions are known as higher-order functions, as they take other functions as arguments.
+
+- map
+The map function applies a function to each element in a sequence and returns a new sequence containing the transformed elements. The map function has the following syntax:
+
+map(function, iterable)
+
+The function argument is a function that is applied to each element in the iterable argument. The iterable argument can be a list, tuple, or any other iterable object.
+
+Here is an example of how to use the map function:
+
+# List of numbers
+numbers = [1, 2, 3, 4, 5]
+# Double each number using the map function
+doubled = map(lambda x: x * 2, numbers)
+# Print the doubled numbers
+print(list(doubled))
+
+In the above example, the lambda function lambda x: x * 2 is used to double each element in the numbers list. The map function applies the lambda function to each element in the list and returns a new list containing the doubled numbers.
+
+- filter
+The filter function filters a sequence of elements based on a given predicate (a function that returns a boolean value) and returns a new sequence containing only the elements that meet the predicate. The filter function has the following syntax:
+
+filter(predicate, iterable)
+The predicate argument is a function that returns a boolean value and is applied to each element in the iterable argument. The iterable argument can be a list, tuple, or any other iterable object.
+
+Here is an example of how to use the filter function:
+
+# List of numbers
+numbers = [1, 2, 3, 4, 5]
+# Get only the even numbers using the filter function
+evens = filter(lambda x: x % 2 == 0, numbers)
+# Print the even numbers
+print(list(evens))
+
+In the above example, the lambda function lambda x: x % 2 == 0 is used to filter the numbers list and return only the even numbers. The filter function applies the lambda function to each element in the list and returns a new list containing only the even numbers.
+
+- reduce
+The reduce function is a higher-order function that applies a function to a sequence and returns a single value. It is a part of the functools module in Python and has the following syntax:
+
+reduce(function, iterable)
+The function argument is a function that takes in two arguments and returns a single value. The iterable argument is a sequence of elements, such as a list or tuple.
+
+The reduce function applies the function to the first two elements in the iterable and then applies the function to the result and the next element, and so on. The reduce function returns the final result.
+
+Here is an example of how to use the reduce function:
+
+from functools import reduce
+# List of numbers
+numbers = [1, 2, 3, 4, 5]
+# Calculate the sum of the numbers using the reduce function
+sum = reduce(lambda x, y: x + y, numbers)
+# Print the sum
+print(sum)
+
+In the above example, the reduce function applies the lambda function lambda x, y: x + y to the elements in the numbers list. The lambda function adds the two arguments x and y and returns the result. The reduce function applies the lambda function to the first two elements in the list (1 and 2), then applies the function to the result (3) and the next element (3), and so on. The final result is the sum of all the elements in the list, which is 15.
+
+It is important to note that the reduce function requires the functools module to be imported in order to use it.
+
+________________________________
+
+* "is" vs "==" in python:
+In Python, is and == are both comparison operators that can be used to check if two values are equal. However, there are some important differences between the two that you should be aware of.
+
+The is operator compares the identity of two objects, while the == operator compares the values of the objects. This means that is will only return True if the objects being compared are the exact same object in memory, while == will return True if the objects have the same value.
+
+For example:
+
+a = [1, 2, 3]
+b = [1, 2, 3]
+print(a == b)  # True
+print(a is b)  # False
+
+In this case, a and b are two separate lists that have the same values, so == returns True. However, a and b are not the same object in memory, so is returns False.
+
+One important thing to note is that, in Python, strings and integers are immutable, which means that once they are created, their value cannot be changed. This means that, for strings and integers, is and == will always return the same result:
+
+a = "hello"
+b = "hello"
+print(a == b)  # True
+print(a is b)  # True
+a = 5
+b = 5
+print(a == b)  # True
+print(a is b)  # True
+
+In these cases, a and b are both pointing to the same object in memory, so is and == both return True.
+
+For mutable objects such as lists and dictionaries, is and == can behave differently. In general, you should use == when you want to compare the values of two objects, and use is when you want to check if two objects are the same object in memory.
+
+________________________________
+
+
+
+
 
 
 
